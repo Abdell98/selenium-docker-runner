@@ -3,27 +3,17 @@ pipeline{
     agent any
 
     stages{
-        stage('stage-1'){
+        stage('Run Test'){
             steps{
-                echo "doing mv clean"
-                echo "doing mvn package"
+                bat "docker-compose up"
             }
         }
 
-        stage('stage-2'){
+        stage('Bring Grid Down'){
             steps{
-                echo "building docker image"
+                bat "docker-compose down"
             }
         }
 
-        stage('stage-3'){
-            steps{
-                echo "pushing docker image"
-            }
-        }
     }
-    post {
-        always {
-            echo "doing clean up "
-        }
-    }
+}
