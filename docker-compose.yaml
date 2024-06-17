@@ -2,8 +2,6 @@ version: "3"
 services:
   hub:
     image: seleniarm/hub:4.16
-    ports:
-    - 4444:4444
   chrome:
     image: seleniarm/node-chromium:4.16
     shm_size: '2g'
